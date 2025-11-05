@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prueba – Diseño de Sonido (Parcial 1)</title>
+  <style>
+    :root { --w: 820px; }
+    *{box-sizing:border-box}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Noto Sans',sans-serif;line-height:1.4;margin:0;background:#0b0d10;color:#e7ebef}
+    header{padding:24px 16px;border-bottom:1px solid #1e232b;background:#0f1318;position:sticky;top:0;z-index:1}
+    h1{font-size:20px;margin:0}
+    main{max-width:var(--w);margin:0 auto;padding:24px 16px}
+    form{display:grid;gap:16px}
+    .card{background:#12171e;border:1px solid #1f2732;border-radius:16px;padding:16px}
+    label{display:block;font-weight:600;margin-bottom:8px}
+    input[type="text"], input[type="email"], select, textarea{width:100%;padding:12px 14px;border:1px solid #2a3544;background:#0f141b;color:#e7ebef;border-radius:12px}
+    textarea{min-height:120px;resize:vertical}
+    .q{display:grid;gap:8px;margin:8px 0}
+    .q legend{font-weight:700;margin-bottom:8px}
+    .muted{color:#9aa7b4;font-size:13px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid #2a3544;background:#1a212b;color:#e7ebef;font-weight:700;cursor:pointer}
+    .btn[disabled]{opacity:.6;cursor:not-allowed}
+    .success{background:#0d2e17;border-color:#1b7c3c}
+    .error{background:#2f1313;border-color:#9b2c2c}
+    .hidden{display:none}
+    .pill{display:inline-block;padding:4px 8px;border:1px solid #2a3544;border-radius:999px;font-size:12px;background:#0f141b}
+    footer{max-width:var(--w);margin:24px auto;padding:0 16px 32px;color:#93a0ae}
+    .brand{font-weight:700;letter-spacing:.4px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Prueba – Diseño de Sonido (Parcial 1)</h1>
+    <div class="muted">Ingresa tu nombre, responde y envía. <strong>Un solo intento</strong> por enlace.</div>
+  </header>
+  <main>
+    <form id="quizForm" class="card">
+      <div class="row">
+        <div>
+          <label for="studentName">Nombre y Apellido</label>
+          <input required id="studentName" name="studentName" type="text" placeholder="Tu nombre completo" />
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="muted">Instrucciones: 8 preguntas (opción múltiple / verdadero-falso). Puntaje total: 10. Algunas preguntas valen 2 puntos.</p>
+
+        <!-- P1–P8: MULTIPLE CHOICE -->
+        <fieldset class="q"><legend>1) Comandos rápidos en Pro Tools — ¿Cuál es el atajo para empezar a grabar?</legend>
+          <label><input type="radio" name="q1" value="A" required> A) Barra espaciadora</label>
+          <label><input type="radio" name="q1" value="B"> B) 3 del teclado numérico</label>
+          <label><input type="radio" name="q1" value="C"> C) Shift + R</label>
+          <label><input type="radio" name="q1" value="D"> D) Ctrl + 3</label>
+        </fieldset>
+        <fieldset class="q"><legend>2) Principios del sonido — El sonido ocurre por la perturbación de las moléculas en un medio…</legend>
+          <label><input type="radio" name="q2" value="A" required> A) Rígido</label>
+          <label><input type="radio" name="q2" value="B"> B) Newtoniano</label>
+          <label><input type="radio" name="q2" value="C"> C) Elástico</label>
+          <label><input type="radio" name="q2" value="D"> D) Vibratorio</label>
+        </fieldset>
+        <fieldset class="q"><legend>3) Longitud de onda — ¿Cuál es la fórmula correcta?</legend>
+          <label><input type="radio" name="q3" value="A" required> A) λ = f / C</label>
+          <label><input type="radio" name="q3" value="B"> B) λ = C / f</label>
+          <label><input type="radio" name="q3" value="C"> C) λ = K / f</label>
+          <label><input type="radio" name="q3" value="D"> D) λ = f / K</label>
+        </fieldset>
+        <fieldset class="q"><legend>4) Técnicas de sonorización — Elige un fin de las técnicas generales de sonorización:</legend>
+          <label><input type="radio" name="q4" value="A" required> A) Perspectiva sonora o planos sonoros</label>
+          <label><input type="radio" name="q4" value="B"> B) Resaltar textos</label>
+          <label><input type="radio" name="q4" value="C"> C) Creación de foley</label>
+          <label><input type="radio" name="q4" value="D"> D) Elevar la actuación de los protagonistas</label>
+        </fieldset>
+        <fieldset class="q"><legend>5) Audición humana — ¿Escucha el ser humano con la misma intensidad todas las frecuencias audibles?</legend>
+          <label><input type="radio" name="q5" value="A" required> A) Verdadero</label>
+          <label><input type="radio" name="q5" value="B"> B) Falso</label>
+        </fieldset>
+        <fieldset class="q"><legend>6) Banda Sonora — La banda sonora de una película hace referencia únicamente a su música?</legend>
+          <label><input type="radio" name="q6" value="A" required> A) Verdadero</label>
+          <label><input type="radio" name="q6" value="B"> B) Falso</label>
+        </fieldset>
+        <fieldset class="q"><legend>7) Pro Tools — ¿El comando rápido para "bouncear" una selección es Ctrl + Alt + B?</legend>
+          <label><input type="radio" name="q7" value="A" required> A) Verdadero</label>
+          <label><input type="radio" name="q7" value="B"> B) Falso</label>
+        </fieldset>
+        <fieldset class="q"><legend>8) Ruteos en Pro Tools — De acuerdo a la siguiente imagen (xDX es un bus), si damos play, ¿se escuchan directamente los clips del track DIR1?</legend>
+          <img src="https://evaplus.itq.edu.ec/pluginfile.php/287343/question/questiontext/preview/287343/qformat_xhtml/76205/76205/image.png" alt="Ruteos en Pro Tools – esquema" style="max-width:100%;border:1px solid #2a3544;border-radius:8px"/>
+          <label><input type="radio" name="q8" value="A" required> A) Verdadero</label>
+          <label><input type="radio" name="q8" value="B"> B) Falso</label>
+        </fieldset>
+      </div>
+
+      <div>
+        <button class="btn" id="submitBtn" type="submit">Enviar intento</button>
+        <span id="status" class="muted"></span>
+      </div>
+    </form>
+
+    <div id="result" class="card hidden"></div>
+  </main>
+  <footer>
+    <div class="muted">© <span class="brand">Polígono Studio · Aula</span></div>
+  </footer>
+
+<script>
+// ======= CONFIGURA AQUÍ =======
+// 1) Reemplaza con tu URL del Web App de Google Apps Script
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyDIt5-wS8XJmyKkKyzL0YFIurvpmf28ones2wpW0hS2fEaaSx3MAe3CR0IW87fzpVP/exec";
+
+// 2) Clave de respuestas para preguntas 1–8 (una correcta por pregunta)
+const ANSWER_KEY = { q1:'B', q2:'C', q3:'B', q4:'A', q5:'B', q6:'B', q7:'B', q8:'B' };
+// 3) Pesos por pregunta para nota sobre 10
+const WEIGHTS = { q1:1, q2:1, q3:1, q4:1, q5:1, q6:2, q7:1, q8:2 };
+// 4) Mostrar nota al alumno tras enviar
+const SHOW_SCORE_TO_STUDENT = true;
+
+function localFlag(){
+  const token = (new URLSearchParams(location.search).get('token')||'').trim();
+  return `quiz_submitted_${token||'no_token'}`;
+}
+
+function computeScore(formData){
+  let score = 0; let detail = {}; let max = 0;
+  for (let i=1;i<=8;i++){
+    const k = `q${i}`; const a = formData.get(k);
+    const w = WEIGHTS[k] || 1; max += w;
+    detail[k] = a || '';
+    if (a && ANSWER_KEY[k] && a === ANSWER_KEY[k]) score += w;
+  }
+  return {score, detail, max};
+}
+
+async function submitToSheet(payload){
+  const res = await fetch(APPS_SCRIPT_URL, {
+    method:'POST',
+    mode:'cors',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(payload)
+  });
+  return res.json();
+}
+
+const form = document.getElementById('quizForm');
+const submitBtn = document.getElementById('submitBtn');
+const statusEl = document.getElementById('status');
+const resultEl = document.getElementById('result');
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  statusEl.textContent = '';
+  const token = (new URLSearchParams(location.search).get('token')||'').trim();
+  if (!token){
+    statusEl.textContent = 'Enlace inválido: falta token. Pide al profesor un link con token.';
+    return;
+  }
+  if (localStorage.getItem(localFlag())){
+    statusEl.textContent = 'Este dispositivo ya envió un intento para este token.';
+    return;
+  }
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando…';
+
+  const fd = new FormData(form);
+  const {score, detail, max} = computeScore(fd);
+  const payload = {
+    token,
+    studentName: fd.get('studentName')||'',
+    answers: detail,
+    score, // sobre 10
+    ua: navigator.userAgent,
+    tsClient: new Date().toISOString()
+  };
+
+  try{
+    const data = await submitToSheet(payload);
+    if (data.ok){
+      localStorage.setItem(localFlag(), '1');
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = `
+        <h3>Nota</h3>
+        <p><strong>${payload.score}/${max}</strong></p>`;
+      statusEl.textContent = '';
+      form.reset();
+    } else {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar intento';
+      statusEl.textContent = data.message || 'No se pudo registrar (token usado o inválido).';
+    }
+  }catch(err){
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Enviar intento';
+    statusEl.textContent = 'Error de red. Verifica tu conexión o el enlace del formulario.';
+    console.error(err);
+  }
+});
+</script>
+</body>
+</html>
