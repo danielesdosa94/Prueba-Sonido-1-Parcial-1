@@ -209,7 +209,9 @@ form.addEventListener('submit', async (e)=>{
       resultEl.innerHTML = `
         <h3>Nota</h3>
         <p><strong>${payload.score}/${max}</strong></p>`;
-      statusEl.textContent = '';
+      statusEl.textContent = 'Registro enviado.';
+      submitBtn.textContent = 'Enviado ✅';
+      submitBtn.disabled = true; // mantener deshabilitado tras el envío
       form.reset();
     } else {
       submitBtn.disabled = false;
