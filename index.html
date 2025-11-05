@@ -132,10 +132,10 @@ function computeScore(formData){
 }
 
 async function submitToSheet(payload){
+  // Evitamos preflight CORS: no enviamos Content-Type JSON explícito.
+  // Apps Script leerá e.postData.contents (text/plain) y lo parseará como JSON.
   const res = await fetch(APPS_SCRIPT_URL, {
-    method:'POST',
-    mode:'cors',
-    headers:{'Content-Type':'application/json'},
+    method: 'POST',
     body: JSON.stringify(payload)
   });
   return res.json();
