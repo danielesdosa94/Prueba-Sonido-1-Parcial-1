@@ -132,11 +132,21 @@ function computeScore(formData){
 }
 
 async function submitToSheet(payload){
-  // Enviar por POST tradicional (form-urlencoded) para evitar CORS.
-  // Creamos un <form> dinámico y lo enviamos a APPS_SCRIPT_URL.
+  // POST clásico a GAS evitando CORS y evitando recargar la página
+  // Enviamos a un iframe oculto para que la respuesta no navegue la pestaña actual.
+  let iframe = document.getElementById('gas_target_iframe');
+  if (!iframe){
+    iframe = document.createElement('iframe');
+    iframe.id = 'gas_target_iframe';
+    iframe.name = 'gas_target_iframe';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+  }
+
   const form = document.createElement('form');
   form.action = APPS_SCRIPT_URL;
   form.method = 'POST';
+  form.target = 'gas_target_iframe';
   form.style.display = 'none';
 
   const addField = (name, value) => {
@@ -157,7 +167,6 @@ async function submitToSheet(payload){
   document.body.appendChild(form);
   form.submit();
 
-  // No podemos leer respuesta (otra origen), pero asumimos entrega OK si no hay error de navegación.
   return { ok: true };
 }
 
